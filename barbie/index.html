@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&display=swap" rel="stylesheet">
+	<title>Barbie Movie</title>
+    <style>
+        /* The CSS styles go here */
+        body {
+            font-family: 'Merienda', cursive;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff69b4;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #ff69b4;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+		.sypno{
+			background-image: url("./heart_background.jpg");
+		}
+
+		.header_logo {
+			width: 100px;
+			height: 100px;
+		}
+
+		.barbie_logo {
+			width: 200px;
+			height: 150px;
+			padding: 20px 20px;
+		}
+
+		/* Carousel */
+		.cast_p
+		{
+			margin-top: 5%;
+			text-align: center;
+		}
+
+		.little_p
+		{
+			margin-top: 15%;
+		}
+        
+		/* gallery */
+		*,
+		*::before,
+		*::after {
+		  box-sizing: border-box;
+		  font-family: "Poppins", sans-serif;
+		}
+
+		#mz-gallery-container {
+		  position: relative;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: center;
+		  width: 100%;
+		  height: 100%;
+		}
+
+		#mz-gallery {
+		  position: relative;
+		  display: flex;
+		  flex-direction: row;
+		  align-items: center;
+		  justify-content: flex-start;
+		  width: calc(100% - 70px);
+		  height: calc(100% - 50px);
+		  max-height: 670px;
+		  max-width: 1900px;
+		  margin: 35px 0px;
+		  background-color: rgb(236, 169, 227);
+		  background-image: radial-gradient(rgba(168, 132, 169, 0.4) 1px, #ff69b4 1px);
+		  background-size: 40px 40px;
+		  outline-offset: 20px;
+		  overflow-x: auto;
+		  overflow-y: hidden;
+		  scroll-snap-type: x mandatory;
+		  scroll-padding: 0 0 0 55px;
+		  scroll-behavior: smooth;
+		  /* firefox scrollbar */
+		  scrollbar-color: rg#ff69b4 #222;
+		  scrollbar-width: auto;
+		  animation: background 300s linear infinite;
+		}
+
+		@keyframes background {
+		  0% {
+		    background-position: -300% 100%;
+		  }
+		  100% {
+		    background-position: 100% -300%;
+		  }
+		}
+
+		#mz-gallery::-webkit-scrollbar {
+		  height: 25px;
+		}
+
+		#mz-gallery::-webkit-scrollbar-track {
+		  background: transparent;
+		}
+
+		#mz-gallery::-webkit-scrollbar-thumb {
+		  background: #fec7f4;
+		}
+
+		#mz-gallery::-webkit-scrollbar-thumb:hover {
+		  background: #fec7f4;
+		}
+
+		#mz-gallery::-webkit-scrollbar-thumb:active {
+		  background: #fec7f4;
+		}
+
+		#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement {
+		  height: 25px;
+		  width: 80px;
+		  background-color: rgb(231, 0, 252);
+		  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-box-arrow-left' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z'/%3E%3Cpath fill-rule='evenodd' d='M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z'/%3E%3C/svg%3E");
+		  background-size: 20px;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		}
+
+		#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment {
+		  height: 25px;
+		  width: 80px;
+		  background-color: rgb(231, 0, 252);
+		  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-box-arrow-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z'/%3E%3Cpath fill-rule='evenodd' d='M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z'/%3E%3C/svg%3E");
+		  background-size: 20px;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		}
+
+		#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement:hover,
+		#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+		  background-color: #f608ea;
+		}
+
+		#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement:active,
+		#mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+		  background-color: #f608ea;
+		}
+
+		#mz-gallery figure {
+		  position: relative;
+		  margin: unset;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: center;
+		  height: 80%;
+		  width: auto;
+		  min-height: 100px;
+		  margin-right: 60px;
+		  scroll-snap-align: start;
+		  transition: all 0.3s ease-in-out;
+		}
+
+		#mz-gallery figure:nth-child(1) {
+		  margin-left: 60px;
+		}
+
+		#mz-gallery figure div {
+		  position: absolute;
+		  width: 1%;
+		  height: 1%;
+		  background: transparent;
+		  opacity: 0;
+		  transition: all 0.3s ease-in-out;
+		}
+
+		#mz-gallery figure div:nth-child(3) {
+		  top: 0;
+		  left: 0;
+		  border-left: 1px dotted rgb(231, 0, 252);
+		  border-top: 1px solid rgb(231, 0, 252);
+		  border-radius: 15px 0px 0px 0px;
+		}
+
+		#mz-gallery figure div:nth-child(4) {
+		  top: 0;
+		  right: 0;
+		  border-top: 1px solid white;
+		  border-right: 1px solid white;
+		  border-radius: 0px 15px 0px 0px;
+		}
+
+		#mz-gallery figure div:nth-child(5) {
+		  bottom: 0;
+		  right: 0;
+		  border-right: 1px dotted rgb(231, 0, 252);
+		  border-bottom: 1px solid rgb(231, 0, 252);
+		  border-radius: 0px 0px 15px 0px;
+		}
+
+		#mz-gallery figure div:nth-child(6) {
+		  bottom: 0;
+		  left: 0;
+		  border-bottom: 1px solid white;
+		  border-left: 1px solid white;
+		  border-radius: 0px 0px 0px 15px;
+		}
+
+		#mz-gallery figure img {
+		  height: 100%;
+		  width: auto;
+		  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+		  border-radius: 5px;
+		  opacity: 0.9;
+		  filter: brightness(1);
+		  outline: 1px solid transparent;
+		  outline-offset: -40px;
+		  transition: all 0.3s ease-in-out;
+		}
+
+		#mz-gallery figure figcaption {
+		  position: absolute;
+		  color: transparent;
+		  font-size: 18pt;
+		  line-height: 24pt;
+		  font-weight: 500;
+		  padding: 0px 20px;
+		  text-align: center;
+		  width: 80%;
+		  height: 80%;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: center;
+		  background: radial-gradient(
+		    rgb(214, 160, 219) 1px,
+		    rgb(255, 105, 180, 0.7) 1px
+		  );
+		  outline: 2px dotted transparent;
+		  outline-offset: 0px;
+		  background-size: 40px 40px;
+		  opacity: 0;
+		  border-radius: 100%;
+		  pointer-events: none;
+		  animation: background 100s linear infinite;
+		  transition: all 0.3s ease-in-out;
+		}
+
+		#mz-gallery figure:hover img {
+		  height: calc(100% - 40px);
+		  filter: brightness(1.5);
+		  border-radius: 10px;
+		  outline: 1px solid rgba(255, 255, 255, 0.8);
+		  outline-offset: 5px;
+		  transition: all 0.3s ease-in-out;
+		}
+
+		#mz-gallery figure:hover {
+		  padding: 0px 20px;
+		}
+
+		#mz-gallery figure:hover figcaption {
+		  opacity: 0.8;
+		  color: white;
+		  outline: 1px solid rgb(231, 0, 252);
+		  outline-offset: -20px;
+		  text-shadow: 1px 1px 3px rgb(162, 144, 244), 0px 0px 5px rgb(162, 144, 244);
+		  transition: all 0.3s ease-in-out;
+		}
+
+		#mz-gallery figure:hover div {
+		  width: 25%;
+		  height: 25%;
+		  opacity: 1;
+		  transition: all 0.3s ease-in-out;
+		}
+
+		@media (max-width: 1145px) {
+		  #mz-gallery figure {
+		    scroll-snap-align: center;
+		  }
+		  #mz-gallery {
+		    scroll-padding: 0px 0px 0px 0px !important;
+		  }
+		}
+
+		@media (max-width: 610px) {
+		  #mz-gallery {
+		    max-height: 320px;
+		  }
+		  #mz-gallery figure {
+		    margin-right: 20px;
+		  }
+		  #mz-gallery figure:nth-child(1) {
+		    margin-left: 20px;
+		  }
+		}
+
+		@media (max-height: 425px) {
+		  #mz-gallery figure figcaption {
+		    font-size: 14pt;
+		    line-height: 20pt;
+		  }
+		}
+
+		@media (max-height: 340px) {
+		  #mz-gallery {
+		    background-size: 30px 30px;
+		    scroll-padding: 0 0 0 28px;
+		  }
+		  #mz-gallery figure {
+		    margin-right: 30px;
+		  }
+		  #mz-gallery figure:nth-child(1) {
+		    margin-left: 30px;
+		  }
+		  #mz-gallery figure figcaption {
+		    font-size: 12pt;
+		    line-height: 18pt;
+		    font-weight: 400;
+		    background-size: 30px 30px;
+		  }
+		}
+
+		@media (max-height: 280px) {
+		  #mz-gallery::-webkit-scrollbar {
+		    height: 20px;
+		  }
+		  #mz-gallery::-webkit-scrollbar-button:single-button:horizontal:decrement,
+		  #mz-gallery::-webkit-scrollbar-button:single-button:horizontal:increment {
+		    width: 80px;
+		    height: 20px;
+		    background-size: 15px;
+		  }
+		}
+
+		@media (max-height: 230px) {
+		  #mz-gallery figure figcaption {
+		    font-size: 10pt;
+		    line-height: 12pt;
+		  }
+		  #mz-gallery figure:hover figcaption {
+		    outline-offset: -10px;
+		  }
+		  #mz-gallery figure:hover img {
+		    outline-offset: 10px;
+		  }
+		}
+
+		@media (max-height: 165px) {
+		  #mz-gallery {
+		    scroll-padding: 0 0 0 18px;
+		    margin: 0px;
+		  }
+		  #mz-gallery figure {
+		    margin-right: 20px;
+		  }
+		  #mz-gallery figure:nth-child(1) {
+		    margin-left: 20px;
+		  }
+		}
+
+		/* touch screen devices */
+
+		@media (pointer: coarse) {
+		  #mz-gallery * {
+		    pointer-events: none;
+		  }
+		  #mz-gallery::-webkit-scrollbar {
+		    height: 35px;
+		  }
+		  #mz-gallery {
+		    scroll-snap-type: unset;
+		    scroll-padding: unset;
+		    scroll-behavior: unset;
+		  }
+		  #mz-gallery figure {
+		    scroll-snap-align: unset;
+		  }
+		  #mz-gallery figure figcaption {
+		    width: 100%;
+		    height: 30%;
+		    bottom: 0;
+		    opacity: 1;
+		    background: rgba(205, 171, 255, 0.6);
+		    color: white;
+		    animation: unset;
+		    border-radius: 0;
+		    padding: 0px 15px;
+		    border-top: 1px solid rgb(231, 0, 252);
+		  }
+		}
+
+    </style>
+</head>
+<body>
+    <header>
+		<img src="./barbie_logo.png" alt="Barbie_logo" class="header_logo">
+        <h1> The Movie</h1>
+    </header>
+    
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#"><img src="./barbie_text.png" class="barbie_logo" alt="barbie_logo"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+			<a class="nav-item nav-link active" href="#">Home</a>
+			<a class="nav-item nav-link" href="#">Cast</a>
+			<a class="nav-item nav-link" href="#">Synopsis</a>
+			<a class="nav-item nav-link" href="#">Gallery</a>
+		  </div>
+		</div>
+	  </nav>
+
+    <div class="container" id="home">
+        <!-- Home content goes here -->
+    </div>
+
+    <div class="container cast" id="cast">
+		<!-- Cast synopsis with images goes here -->
+		<h2 >Cast</h2>
+		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+					  <div class="col-sm">
+						<img class="rounded" src="./margot.webp" height="300" width="250" alt="cast">
+						<p>Margot Robbie</p>
+					  </div>
+					  <div class="col-sm cast_p">
+						<p>
+							Barbara Handler, formerly known as Barbie and also known as Stereotypical Barbie, 
+							is the main protagonist of Barbie: The Movie. She is played by Margot Robbie. Barbie lives 
+							in a Dream House in Barbie Land. After experiencing an existential crisis, she and Ken went 
+							to the Real World together, eventually leading to her becoming human.
+						</p>
+					  </div>
+					</div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./ryan.webp"  height="300" width="250" alt="cast">
+							<p>Ryan Gosling</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Ken is one of the main characters and former antagonist in Barbie: The Movie. He is played by Ryan Gosling. 
+							Having an unrequited crush on Stereotypical Barbie, he joined her on her quest to the real world. 
+							After spending some time in the real world, Ken learned about the system of patriarchy, 
+							going back to Barbie Land to export it there. His plans were eventually thwarted, and he learned to 
+							accept himself without having to define himself by his relationship to Barbie.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./ariadna.webp"  height="300" width="250" alt="cast">
+							<p>Ariadna Greenblatt</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Sasha is a character in Barbie: The Movie. She is played by Ariana Greenblatt. 
+							Sasha lives in the Real World with her mother Gloria.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./will_ferrel.webp"  height="300" width="250" alt="cast">
+							<p>Will Ferrel</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							The Mattel CEO is a fictional character in Barbie: The Movie. He is played by 
+							Will Ferrell. He is the Mattel CEO in the Real World.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./Emma.webp"  height="300" width="250" alt="cast">
+							<p>Emma Mackey</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Barbie is a character in Barbie: The Movie. She is played by Emma Mackey. Barbie 
+							is a famous physicist who won a Nobel Prize, and she lives in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./simiu_liu.webp"  height="300" width="250" alt="cast">
+							<p>Simu Liu</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Ken is a character in Barbie: The Movie. He is played by Simu Liu. He had a rivalry with Ken.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./michael_cera.webp"  height="300" width="250" alt="cast">
+							<p>Michael Cera</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Allan is a character in Barbie: The Movie. He is played by Canadian actor Michael Cera. 
+							Allan lives in Barbie Land. There is only one Allan, and he is Ken's buddy.
+							Allan is observed to be different than the other Kens, hence the name. 
+							Allan seems to be awkward and out of place, and gives off the impression that he's not 
+							the biggest fan of Barbie Land. After Ken changes Barbie Land, he even tags along with 
+							Sasha & Gloria as they return to the Real World.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./kate_mckinnon.webp"  height="300" width="250" alt="cast">
+							<p>Kate McKinnon</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Barbie is a character in Barbie: The Movie. She is played by Kate McKinnon. She is known as Weird Barbie.
+							Weird Barbie helps Barbie get through to the normal world and also helps the other Barbies snap out of Ken's ideal mindset.
+							Weird Barbie is based off of when people play with their Barbies a little too hard, such as 
+							drawing on their face, cutting up their hair or placing them into weird positions. 
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./america_ferrera.jpeg"  height="300" width="250" alt="cast">
+							<p>America Ferrera</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Gloria is a character in Barbie: The Movie. Gloria has a daughter named Sasha. 
+							Gloria meets Barbie in the Real World. She is portrayed by America Ferrera.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./issa_rae.webp"  height="300" width="250" alt="cast">
+							<p>Issa Rae</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Barbie is a character in Barbie: The Movie. She is played by Issa Rae. Barbie is the President of Barbie Land.
+							It is possible that this Barbie was inspired by the 2020 "Career of the Year Campaign Team" set, which featured 
+							a Black female presidential candidate.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./alexandra.webp"  height="300" width="250" alt="cast">
+							<p>Alexandra Shipp</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Barbie is a character in Barbie: The Movie. She is played by Alexandra Shipp. 
+							Barbie is a celebrated author who lives in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./hari_neff.webp"  height="300" width="250" alt="cast">
+							<p>Hari Nef</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Barbie is a character in Barbie: The Movie. She is played by Hari Nef. Barbie is a doctor in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./sharon_rooney.webp"  height="300" width="250" alt="cast">
+							<p>Sharon Rooney</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Lawyer Barbie is a character in Barbie: The Movie. She is played by Sharon Rooney. 
+							Barbie is a lawyer who lives in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./ana_kruz.webp"  height="300" width="250" alt="cast">
+							<p>Ana Cruz Kayne</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Barbie is a character in Barbie: The Movie. She is played by Ana Cruz Kayne. 
+							Barbie is a judge and a member of Supreme Court Justice who lives in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./rita_arya.webp"  height="300" width="250" alt="cast">
+							<p>Ritu Arya</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Barbie is a character in Barbie: The Movie. She is played by Ritu Arya. Barbie is a famous Pulitzer 
+							prize-winning journalist and reporter who lives in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./scott_evans.webp"  height="300" width="250" alt="cast">
+							<p>Scott Evans</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Ken is a character in Barbie: The Movie. He is played by Scott Evans.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./dua_lipa.webp"  height="300" width="250" alt="cast">
+							<p>Dua Lipa</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Barbie is a character in Barbie: The Movie. She is played by Dua Lipa. Barbie is a 
+							blue-haired mermaid who lives with other two mermaid Barbies, also played by Dua Lipa, in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./nicola.webp"  height="300" width="250" alt="cast">
+							<p>Nicola Coughlan</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Barbie is a character in Barbie: The Movie. She is played by Nicola Coughlan. 
+							Barbie is a diplomat who lives in Barbie Land.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./pink_back.avif" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./esmerald.webp"  height="300" width="250" alt="cast">
+							<p>Emerald Fennell</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p>
+							Midge is a doll who lives in Barbie Land. Barbie and Midge greet each other and the narrator 
+							mentions that Midge was discontinued because a pregnant doll was "too weird". Midge later goes 
+							to Barbie's blowout party. When the Mattel CEO comes to Barbie Land, he is startled by Midge 
+							because he thought she was discontinued.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./kingsley.webp"  height="300" width="250" alt="cast">
+							<p>Kingsley Ben-Adir</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Ken is a character in Barbie: The Movie. He is played by Kingsley Ben-Adir.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 rounded" src="./barbi_pink_bkg.png" height="400" alt="slide">
+				<div class="carousel-caption d-none d-md-block">
+					<div class="row">
+						<div class="col-sm">
+							<img class="rounded" src="./ncuty.webp"  height="300" width="250" alt="cast">
+							<p>Ncuti Gatwa</p>
+						</div>
+						<div class="col-sm cast_p">
+						  <p class="little_p">
+							Ken is a character in Barbie: The Movie. He is played by Ncuti Gatwa.
+						  </p>
+						</div>
+					  </div>
+				</div>
+			  </div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			</a>
+		  </div>
+    </div>
+
+    <div class="container" id="synopsis">
+        <!-- Movie synopsis with images goes here -->
+		<h2>Sypnosis</h2>
+		<p>
+			Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land.
+			However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.
+		</p>
+    </div>
+
+    <div class="container" id="gallery">
+        <!-- Image gallery goes here -->
+		<h2>Gallery</h2>
+		<div id="mz-gallery-container">
+
+			<div id="mz-gallery">
+		  
+			  <figure>
+				<img src="./doll.jpg" alt="Statue of Liberty" width="100" height="100">
+				<figcaption>Barbie</figcaption>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_trailer.jpeg" alt="Night Sky" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_margot.jpeg" alt="Ravine Between Rocks" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_feet.jpeg" alt="Wheat Farm" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_president.webp" alt="City Street" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_womerpower.webp" alt="Crumbling Pier" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_roller.webp" alt="Foggy Mountains" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_police.webp" alt="Dense Forest" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+		  
+			  <figure>
+				<img src="gallerie_police-ken.jpeg" alt="Sunset Over Mountains" width="700" height="700">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			  </figure>
+			</div>
+		  
+		  </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>
