@@ -65,6 +65,13 @@
 			height: 150px;
 			padding: 20px 20px;
 		}
+		/*home*/
+		#home {
+			background-color:#ff69b4;
+		}
+		.video-container {
+			text-align: center;
+		}
 
 		/* Carousel */
 		.cast_p
@@ -77,15 +84,13 @@
 		{
 			margin-top: 15%;
 		}
+
+		/* Synosis */
+		#synopsis {
+			background-color:#ff69b4;
+		}
         
 		/* gallery */
-		*,
-		*::before,
-		*::after {
-		  box-sizing: border-box;
-		  font-family: "Poppins", sans-serif;
-		}
-
 		#mz-gallery-container {
 		  position: relative;
 		  display: flex;
@@ -122,15 +127,7 @@
 		  animation: background 300s linear infinite;
 		}
 
-		@keyframes background {
-		  0% {
-		    background-position: -300% 100%;
-		  }
-		  100% {
-		    background-position: 100% -300%;
-		  }
-		}
-
+	
 		#mz-gallery::-webkit-scrollbar {
 		  height: 25px;
 		}
@@ -434,18 +431,40 @@
 		<img src="./barbie_logo.png" alt="Barbie_logo" class="header_logo">
         <h1> The Movie</h1>
     </header>
-    
+
+     <!-- Top bar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#"><img src="./barbie_text.png" class="barbie_logo" alt="barbie_logo"></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		  <div class="navbar-nav">
-			<a class="nav-item nav-link active" href="#">Home</a>
-			<a class="nav-item nav-link" href="#">Cast</a>
-			<a class="nav-item nav-link" href="#">Synopsis</a>
-			<a class="nav-item nav-link" href="#">Gallery</a>
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="/" title="Home">
+			  <img src="barbie_text.png"alt="Barbie" width="100" height="auto" class="icon"></img>
+			  
+		  </a>
+		  <button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarNav"
+			aria-controls="navbarNav"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		  >
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#home">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#cast">Cast</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#synopsis">Synopsis</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#gallery">Gallery</a>
+				</li>
+			</ul>
 		  </div>
 		</div>
 	  </nav>
@@ -848,6 +867,11 @@
 			Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land.
 			However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.
 		</p>
+		<div class="video-container">
+			<iframe id="ytplayer" type="text/html" width="640" height="360"
+  				src="http://www.youtube.com/embed/pBk4NYhWNMM?autoplay=0&origin=http://example.com"
+  				frameborder="0"></iframe>
+		</div>
     </div>
 
     <div class="container" id="gallery">
