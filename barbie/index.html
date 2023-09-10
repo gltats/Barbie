@@ -70,6 +70,11 @@
 			background-color: #ff69b4;
 		}
 
+		.image-container {
+		    display: flex;
+		    justify-content: space-between; /* This will evenly space the images */
+		}
+
 		.hi_barbie
 		{
 			width: auto;
@@ -479,10 +484,11 @@
 
     <div class="container" id="home">
         <!-- Home content goes here -->
-		<img class="d-block hi_barbie" src="./img/margot_robie_no_back.png"  alt="Margot">
-		<img class="d-block hi_barbie" src="./img/text_home.png"  alt="Margot">
-		<img class="d-block hi_barbie" src="./img/margot_robie_no_back.png"  alt="Margot">
-
+		<div class="image-container">
+			<img class="d-block hi_barbie" src="./img/barbie_home_shape.png" alt="Margot">
+			<img class="d-block hi_barbie" src="./img/text_home.png" alt="Margot">
+			<img class="d-block hi_barbie" src="./img/margot_robie_no_back.png" alt="Margot">
+		</div>
     </div>
 
     <div class="container cast" id="cast">
