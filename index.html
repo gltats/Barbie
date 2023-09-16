@@ -172,6 +172,19 @@
 			} */
 		}
 
+		/* Style the container div */
+		.spotify-container {
+			width: 100%;
+			background-color: pink;
+			border-radius: 20px;
+		}
+
+		/* Style the embedded Spotify iframe */
+		.spotify-container iframe {
+			border: none;
+			border-radius: 20px;
+		}
+
 
 		.button-85 {
 			margin: 0;
@@ -792,6 +805,13 @@
 				<img class="d-block home_title" src="./img/text_home.png" alt="Barbie_logo">
 				<img class="d-block hi_margot" src="./img/margot_robie_no_back.png" alt="Margot">
 			</div>
+			<div class="spotify-container">
+				<iframe style="border-radius:12px"
+					src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0wIBbVnPvie?utm_source=generator&theme=0"
+					width="100%" height="152" frameBorder="0" allowfullscreen=""
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+					loading="lazy"></iframe>
+			</div>
 			<a href="#synopsis">
 				<button class="button-85" role="button">Trailer</button>
 			</a>
@@ -1346,7 +1366,7 @@
 			</p>
 			<div class="video-container">
 				<iframe id="ytplayer" type="text/html" width="640" height="360"
-					src="http://www.youtube.com/embed/pBk4NYhWNMM?autoplay=0&origin=https://barbie-the-movie.netlify.app/"
+					src="https://www.youtube.com/embed/pBk4NYhWNMM?autoplay=0&origin=https://barbie-the-movie.netlify.app"
 					frameborder="0"></iframe>
 			</div>
 		</div>
